@@ -1,0 +1,16 @@
+#!/usr/local/azure/node
+// Microsoft Azure Deployment Tool
+// Copyright (c) Microsoft Corporation
+
+process.env.PRECOMPILE_STREAMLINE_FILES = 1
+
+var AzureCli = require('/usr/local/azure/lib/cli');
+
+var cli = new AzureCli();
+cli.parse(process.argv);
+if (cli.args.length == 0) {
+    cli.parse(['', '', '-h']);
+}
+
+// Note: this script makes use of a private, local binary of Node 
+// instead of using the system-wide installation version.
